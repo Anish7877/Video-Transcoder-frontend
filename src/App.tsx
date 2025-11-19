@@ -14,7 +14,7 @@ function App() {
     setIsProcessing(false);
   };
 
-  
+
 
 const handleTranscode = async () => {
   if (!file) return;
@@ -26,7 +26,7 @@ const handleTranscode = async () => {
     formData.append('format', selectedFormat);
 
     // Replace with your actual backend URL
-    const response = await fetch('http://localhost:8080/upload', {
+    const response = await fetch('http://16.170.158.109:8080/upload', {
       method: 'POST',
       body: formData,
     });
@@ -37,10 +37,10 @@ const handleTranscode = async () => {
     }
 
     const data = await response.json();
-    
+
     // Handle success - typically you might want to set a download URL state here
     console.log("Download URL:", data.downloadUrl);
-    
+
     // Automatically trigger download if desired
     window.location.href = data.downloadUrl;
 
